@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const INITIAL_STATE = {
   email: '',
-  password: ''
+  password: '',
 };
 
 export default class SignUpForm extends Component {
@@ -10,13 +10,12 @@ export default class SignUpForm extends Component {
 
   handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
     this.reset();
   };
 
@@ -25,7 +24,7 @@ export default class SignUpForm extends Component {
   };
 
   render() {
-    const {  email, password } = this.state;
+    const { email, password } = this.state;
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -38,7 +37,6 @@ export default class SignUpForm extends Component {
         />
         <br />
 
-
         <input
           type="password"
           name="password"
@@ -47,7 +45,7 @@ export default class SignUpForm extends Component {
           placeholder="Password"
         />
         <br />
-        <button>SignIn</button>
+        <button type="submit">SignIn</button>
       </form>
     );
   }

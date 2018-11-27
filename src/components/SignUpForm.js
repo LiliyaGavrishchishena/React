@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   name: '',
   email: '',
   phone: '',
-  password: ''
+  password: '',
 };
 
 export default class SignUpForm extends Component {
@@ -12,13 +12,12 @@ export default class SignUpForm extends Component {
 
   handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
     this.reset();
   };
 
@@ -63,7 +62,7 @@ export default class SignUpForm extends Component {
           placeholder="Password"
         />
         <br />
-        <button>SignUp</button>
+        <button type="submit">SignUp</button>
       </form>
     );
   }

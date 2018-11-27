@@ -4,7 +4,7 @@ import MenuItemCard from './MenuItemCard';
 
 export default class MenuGrid extends Component {
   state = {
-    filter: ''
+    filter: '',
   };
 
   handleFilterData = ({ target }) => {
@@ -23,7 +23,7 @@ export default class MenuGrid extends Component {
             item =>
               item.name.toLowerCase().includes(filter.toLowerCase()) && (
                 <MenuItemCard key={item.id}>{item}</MenuItemCard>
-              )
+              ),
           )}
         </ul>
       </div>

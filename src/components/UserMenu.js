@@ -1,9 +1,28 @@
-import React from "react";
+import React, { Component } from 'react';
+import Dropdown from './Dropdown';
+import Avatar from './Avatar';
+import avatar from '../avatar.jpg';
 
-const UserMenu = ({name}) => (
-  <div>
-    <p>{name}</p>
-  </div>
-);
+export default class UserMenu extends Component {
+  state = {
+    isDropDownOpen: false,
+  };
 
-export default UserMenu;
+  toggleDropdown = () => {
+    this.setState(state => ({
+      isDropDownOpen: !state.isDropDownOpen,
+    }));
+  };
+
+  render() {
+    const { isDropDownOpen } = this.state;
+
+    return (
+      <div>
+        <Avatar image={avatar} />
+        <span>Джордан Уокер </span>
+        {isDropDownOpen && Dropdown}
+      </div>
+    );
+  }
+}
