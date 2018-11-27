@@ -10,7 +10,6 @@ import history from '../data/order-history.json';
 const App = () => (
   <div>
     <AppHeader />
-    <br />
     <SignUpForm />
     <br />
     <SignInForm />
