@@ -1,21 +1,36 @@
-import React from 'react';
-import SignUpForm from './SignUpForm';
-import SignInForm from './SignInForm';
-import AppHeader from './AppHeader';
-import MenuGrid from './MenuGrid';
-import menu from '../data/menu.json';
-import OrderHistory from './OrderHistory';
-import history from '../data/order-history.json';
+import React, { Component } from 'react';
+import Modal from './Modal/Modal';
+import SignUpForm from './Tabs/SignUpForm';
+import SignInForm from './Tabs/SignInForm';
+import AppHeader from './AppHeader/AppHeader';
+import MenuPage from './Menu/MenuPage';
+import OrderHistory from './OrderHistory/OrderHistory';
+import history from './order-history.json';
 
-const App = () => (
-  <div>
-    <AppHeader />
-    <SignUpForm />
-    <br />
-    <SignInForm />
-    <br />
-    <MenuGrid menu={menu} />
-    <OrderHistory history={history} />
-  </div>
-);
-export default App;
+export default class App extends Component {
+  state = { isModalOpen: false };
+
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  };
+
+  render() {
+    const { isModalOpen } = this.state;
+
+    return (
+      <div>
+        <AppHeader />
+        <button type="button" onClick={this.openModal}>
+          Open Modal
+        </button>
+        {isModalOpen && <Modal onClose={() => null} />}
+        <SignUpForm />
+        <br />
+        <SignInForm />
+        <br />
+        <MenuPage />
+        <OrderHistory history={history} />
+      </div>
+    );
+  }
+}

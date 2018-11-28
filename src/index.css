@@ -1,24 +1,15 @@
-.header {
-  display: flex;
+html {
+  box-sizing: border-box;
 }
 
-.nav {
-  display: flex;
-  list-style-type: none;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
-.card {
-  width: 300px;
-}
-
-.menu {
-  display: flex;
-  list-style-type: none;
-  flex-wrap: wrap;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+body {
+  font-family: Roboto, Arial, Ubuntu, sasn-serif;
+  font-size: 16px;
+  font-weight: 400;
 }
