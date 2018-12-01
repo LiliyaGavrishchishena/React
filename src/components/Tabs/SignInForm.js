@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './SignInForm.module.css';
 
 const INITIAL_STATE = {
   email: '',
@@ -27,26 +28,33 @@ export default class SignUpForm extends Component {
     const { email, password } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={this.handleChange}
-          placeholder="Email"
-        />
-        <br />
+      <div className={styles.form}>
+        <h2 className={styles.title}>Sign In</h2>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            className={styles.input}
+            type="email"
+            name="email"
+            value={email}
+            onChange={this.handleChange}
+            placeholder="Email"
+          />
+          <br />
 
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={this.handleChange}
-          placeholder="Password"
-        />
-        <br />
-        <button type="submit">SignIn</button>
-      </form>
+          <input
+            className={styles.input}
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.handleChange}
+            placeholder="Password"
+          />
+          <br />
+          <button type="submit" className={styles.button}>
+            Sign In
+          </button>
+        </form>
+      </div>
     );
   }
 }

@@ -19,13 +19,12 @@
   text-transform: uppercase;
 }
 .head {
-  color: #d5dde5;
-  background: #1b1e24;
+  color: #fff;
+  background: #f59e25;
   border-bottom: 1px solid #9ea7af;
   border-right: 1px solid #343a45;
   font-size: 18px;
   font-weight: 100;
-  padding: 30px;
   text-align: left;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   vertical-align: middle;
@@ -41,7 +40,7 @@
 }
 .cell {
   background: #ffffff;
-  padding: 20px;
+  padding: 5px;
   text-align: left;
   vertical-align: middle;
   font-weight: 300;
@@ -51,7 +50,7 @@
 }
 
 tr:hover td {
-  background: #4e5066;
+  background: #d4af7a;
   color: #ffffff;
   border-top: 1px solid #22262e;
 }
@@ -61,5 +60,5 @@ tr:nth-child(odd) td {
 }
 
 tr:nth-child(odd):hover td {
-  background: #4e5066;
+  background: #d4af7a;
 }

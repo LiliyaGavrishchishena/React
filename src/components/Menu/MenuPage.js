@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MenuGrid from './MenuGrid';
 import * as API from '../services/api';
+import styles from './MenuPage.module.css';
 
 export default class MenuPage extends Component {
   state = { menu: [] };
@@ -50,7 +51,11 @@ export default class MenuPage extends Component {
     const { menu } = this.state;
     return (
       <div>
-        <button type="button" onClick={this.handleAddMenuItem}>
+        <button
+          className={styles.btn_addMenu}
+          type="button"
+          onClick={this.handleAddMenuItem}
+        >
           Add menu item
         </button>
         <MenuGrid

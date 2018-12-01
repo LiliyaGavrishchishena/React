@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './SignUpForm.module.css';
 
 const INITIAL_STATE = {
   name: '',
@@ -29,41 +30,50 @@ export default class SignUpForm extends Component {
     const { name, email, phone, password } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={this.handleChange}
-          placeholder="Name"
-        />
-        <br />
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={this.handleChange}
-          placeholder="Email"
-        />
-        <br />
-        <input
-          type="phone"
-          name="phone"
-          value={phone}
-          onChange={this.handleChange}
-          placeholder="Phone"
-        />
-        <br />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={this.handleChange}
-          placeholder="Password"
-        />
-        <br />
-        <button type="submit">SignUp</button>
-      </form>
+      <div className={styles.form}>
+        <h2 className={styles.title}>Sign up</h2>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            className={styles.input}
+            type="text"
+            name="name"
+            value={name}
+            onChange={this.handleChange}
+            placeholder="Name"
+          />
+          <br />
+          <input
+            className={styles.input}
+            type="email"
+            name="email"
+            value={email}
+            onChange={this.handleChange}
+            placeholder="Email"
+          />
+          <br />
+          <input
+            className={styles.input}
+            type="phone"
+            name="phone"
+            value={phone}
+            onChange={this.handleChange}
+            placeholder="Phone"
+          />
+          <br />
+          <input
+            className={styles.input}
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.handleChange}
+            placeholder="Password"
+          />
+          <br />
+          <button type="submit" className={styles.button}>
+            SignUp
+          </button>
+        </form>
+      </div>
     );
   }
 }

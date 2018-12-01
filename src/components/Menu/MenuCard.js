@@ -7,14 +7,10 @@ const MenuCard = ({ image, name, price, onShowMoreInfo, onDelete }) => (
     <p>{name}</p>
     <p>Price: {price}$</p>
     <div className={styles.actions}>
-      <button
-        className={styles.button_show}
-        type="button"
-        onClick={onShowMoreInfo}
-      >
-        Show more information
+      <button className={styles.button} type="button" onClick={onShowMoreInfo}>
+        Show more
       </button>
-      <button className={styles.button_delete} type="button" onClick={onDelete}>
+      <button className={styles.button} type="button" onClick={onDelete}>
         Delete
       </button>
     </div>

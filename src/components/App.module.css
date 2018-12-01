@@ -1,4 +1,4 @@
-.btn_addMenu {
+.btn_openModal {
   display: block;
   margin: 0 auto;
   width: 200px;
@@ -11,6 +11,6 @@
   outline: none;
   background: #d4af7a;
 }
-.btn_addMenu:hover {
+.btn_openModal:hover {
   background: #f59e25;
 }
