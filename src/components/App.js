@@ -1,10 +1,10 @@
 import React, { Component, createRef } from 'react';
 import Modal from './Modal/Modal';
-import SignUpForm from './Tabs/SignUpForm';
-import SignInForm from './Tabs/SignInForm';
+import Tab from './Tabs/Tab';
 import AppHeader from './AppHeader/AppHeader';
 import MenuPage from './Menu/MenuPage';
 import OrderHistory from './OrderHistory/OrderHistory';
+import ErrorNotification from './ErrorNotification';
 import history from './order-history.json';
 import styles from './App.module.css';
 
@@ -54,7 +54,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { isModalOpen } = this.state;
+    const { isModalOpen, error } = this.state;
 
     return (
       <div>
@@ -68,11 +68,10 @@ export default class App extends Component {
           Payment details
         </button>
         {isModalOpen && <Modal onClose={this.closeModal} />}
-        <SignUpForm />
-        <br />
-        <SignInForm />
+        <Tab />
         <br />
         <MenuPage />
+        {error && <ErrorNotification />}
         <OrderHistory history={history} />
       </div>
     );
