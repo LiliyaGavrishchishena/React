@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SignInForm from './SignInForm';
-import SignUpForm from './SignUpForm';
+import SignInForm from '../SignInForm/SignInForm';
+import SignUpForm from '../SignUpForm/SignUpForm';
 import styles from './Tab.module.css';
 
 export default class Tab extends Component {
