@@ -1,11 +1,10 @@
 import React, { Component, createRef } from 'react';
 import Modal from './Modal/Modal';
-import Tab from './Tabs/Tab';
-import AppHeader from './AppHeader/AppHeader';
-import MenuPage from './Menu/MenuPage';
-import OrderHistory from './OrderHistory/OrderHistory';
+import Tab from './Tabs/Tab/Tab';
+import AppHeader from './Header/AppHeader/AppHeader';
+import MenuPage from './Menu/MenuPage/MenuPage';
+import OrderHistory from './OrderHistory/OrderHistory/OrderHistory';
 import ErrorNotification from './ErrorNotification';
-import history from './order-history.json';
 import styles from './App.module.css';
 
 export default class App extends Component {
@@ -72,7 +71,7 @@ export default class App extends Component {
         <br />
         <MenuPage />
         {error && <ErrorNotification />}
-        <OrderHistory history={history} />
+        <OrderHistory />
       </div>
     );
   }

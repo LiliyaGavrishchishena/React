@@ -1,10 +1,10 @@
 import React, { Component, createRef } from 'react';
 import styles from './OrderHistory.module.css';
-import TableOfOrders from './TableOfOrders';
-import AddOrderForm from './AddOrderForm';
-import OrderHistoryNote from './OrderHistoryNote';
-import Spiner from './Spiner/Spiner';
-import * as API from '../services/api';
+import TableOfOrders from '../TableOfOrders/TableOfOrders';
+import AddOrderForm from '../AddOrderForm/AddOrderForm';
+import OrderHistoryNote from '../OrderHistoryNote/OrderHistoryNote';
+import Spiner from '../Spiner/Spiner';
+import * as API from '../../services/api';
 
 export default class OrderHistory extends Component {
   containerRef = createRef();

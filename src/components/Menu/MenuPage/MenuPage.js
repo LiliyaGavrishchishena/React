@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MenuGrid from './MenuGrid';
-import * as API from '../services/api';
+import MenuGrid from '../MenuGrid/MenuGrid';
+import * as API from '../../services/api';
 import styles from './MenuPage.module.css';
 
 export default class MenuPage extends Component {
