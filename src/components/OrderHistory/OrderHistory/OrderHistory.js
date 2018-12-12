@@ -1,10 +1,12 @@
 import React, { Component, createRef } from 'react';
-import styles from './OrderHistory.module.css';
+// components
 import TableOfOrders from '../TableOfOrders/TableOfOrders';
 import AddOrderForm from '../AddOrderForm/AddOrderForm';
 import OrderHistoryNote from '../OrderHistoryNote/OrderHistoryNote';
 import Spiner from '../Spiner/Spiner';
 import * as API from '../../services/api';
+// styles
+import styles from './OrderHistory.module.css';
 
 export default class OrderHistory extends Component {
   containerRef = createRef();
@@ -17,8 +19,10 @@ export default class OrderHistory extends Component {
   };
 
   componentDidMount() {
-    this.setState({ isLoading: true });
     API.getAllHistoryNotes().then(history => {
+      this.setState({ history });
+    });
+    API.getHistoryNoteById().then(history => {
       this.setState({ history });
     });
     window.addEventListener('click', this.handleWindowClick);
@@ -60,20 +64,17 @@ export default class OrderHistory extends Component {
     });
   };
 
-  handleAddOrder = order => {
-    const { address, price, rating } = order;
+  handleAddOrder = ({ address, price, rating }) => {
     API.addHistoryNote({
       date: new Date().toLocaleDateString('en-US'),
       price,
       address,
       rating,
-    }).then(response =>
-      response.status === 201
-        ? this.setState(prevState => ({
-            orders: [...prevState.orders, response.data],
-          }))
-        : null,
-    );
+    }).then(newItem => {
+      this.setState(state => ({
+        history: [...state.history, newItem],
+      }));
+    });
   };
 
   openAddOrderForm = () => {
@@ -102,7 +103,6 @@ export default class OrderHistory extends Component {
   };
 
   handleDeleteHistoryNote = id => {
-    this.setState({ isLoading: true });
     API.deleteHistoryNote(id).then(isOk => {
       if (!isOk) return;
 

@@ -1,5 +1,7 @@
 import React from 'react';
+// components
 import MenuCard from '../MenuCard/MenuCard';
+// styles
 import styles from './MenuGrid.module.css';
 
 const MenuGrid = ({ items, onDelete, onShowMoreInfo }) => (

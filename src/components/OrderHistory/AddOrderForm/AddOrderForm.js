@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+// components
+import Backdrop from '../../Backdrop/Backdrop';
+// styles
 import styles from './AddOrderForm.module.css';
 
 const INITIAL_STATE = {
@@ -35,7 +38,7 @@ export default class AddOrderForm extends Component {
     const { onClose } = this.props;
 
     return (
-      <div className={styles.backdrop}>
+      <Backdrop>
         <div className={styles.modalWindow}>
           <form onSubmit={this.handleSubmit}>
             <label>
@@ -80,7 +83,7 @@ export default class AddOrderForm extends Component {
             </button>
           </form>
         </div>
-      </div>
+      </Backdrop>
     );
   }
 }

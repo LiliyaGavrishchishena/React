@@ -1,6 +1,8 @@
 import React, { Component, createRef } from 'react';
+// components
 import Dropdown from './Dropdown/Dropdown';
 import Avatar from './Avatar/Avatar';
+// styles
 import styles from './UserMenu.module.css';
 
 export default class UserMenu extends Component {

@@ -1,9 +1,11 @@
 import React from 'react';
+// components
 import Logo from '../Logo/Logo';
 import AppNav from '../AppNav/AppNav';
 import UserMenu from '../UserMenu/UserMenu';
 import logo from '../logo.png';
 import avatar from '../avatar.jpg';
+// styles
 import styles from './AppHeader.module.css';
 
 const navItems = ['Menu', 'About', 'Contacts'];

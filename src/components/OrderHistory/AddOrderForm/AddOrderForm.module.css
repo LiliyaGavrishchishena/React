@@ -1,16 +1,5 @@
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .modalWindow {
-  max-width: 600px;
+  width: 600px;
   max-height: 400px;
   background-color: #fff;
   padding: 25px;

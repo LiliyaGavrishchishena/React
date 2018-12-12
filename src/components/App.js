@@ -1,10 +1,13 @@
 import React, { Component, createRef } from 'react';
+// components
 import Modal from './Modal/Modal';
+import Backdrop from './Backdrop/Backdrop';
 import Tab from './Tabs/Tab/Tab';
 import AppHeader from './Header/AppHeader/AppHeader';
 import MenuPage from './Menu/MenuPage/MenuPage';
 import OrderHistory from './OrderHistory/OrderHistory/OrderHistory';
 import ErrorNotification from './ErrorNotification';
+// styles
 import styles from './App.module.css';
 
 export default class App extends Component {
@@ -66,7 +69,11 @@ export default class App extends Component {
         >
           Payment details
         </button>
-        {isModalOpen && <Modal onClose={this.closeModal} />}
+        {isModalOpen && (
+          <Backdrop>
+            <Modal onClose={this.closeModal} />
+          </Backdrop>
+        )}
         <Tab />
         <br />
         <MenuPage />
