@@ -1,5 +1,5 @@
 {
-  "name": "React",
+  "name": "react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -39,8 +39,15 @@
     "prettier": "^1.15.2"
   },
   "main": "index.js",
-  "repository": "https://github.com/LiliyaGavrishchishena/React.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiliyaGavrishchishena/React.git"
+  },
   "author": "liliya.gavrishchishena@gmail.com",
   "license": "MIT",
-  "description": "React"
+  "description": "React",
+  "bugs": {
+    "url": "https://github.com/LiliyaGavrishchishena/React/issues"
+  },
+  "homepage": "https://github.com/LiliyaGavrishchishena/React#readme"
 }
