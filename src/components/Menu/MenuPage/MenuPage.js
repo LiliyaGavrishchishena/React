@@ -12,10 +12,6 @@ export default class MenuPage extends Component {
     API.getAllMenuItems().then(menu => {
       this.setState({ menu });
     });
-
-    API.getMenuItemById().then(menu => {
-      this.setState({ menu });
-    });
   }
 
   handleDeleteItem = id => {
@@ -25,12 +21,6 @@ export default class MenuPage extends Component {
       this.setState(state => ({
         menu: state.menu.filter(item => item.id !== id),
       }));
-    });
-  };
-
-  handleShowMoreInfo = id => {
-    API.getMenuItemById(id).then(item => {
-      console.log(item);
     });
   };
 

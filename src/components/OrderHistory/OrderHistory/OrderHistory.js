@@ -22,9 +22,7 @@ export default class OrderHistory extends Component {
     API.getAllHistoryNotes().then(history => {
       this.setState({ history });
     });
-    API.getHistoryNoteById().then(history => {
-      this.setState({ history });
-    });
+
     window.addEventListener('click', this.handleWindowClick);
     window.addEventListener('keyup', this.handleEscapeKeyPress);
   }

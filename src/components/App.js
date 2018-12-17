@@ -6,7 +6,6 @@ import Tab from './Tabs/Tab/Tab';
 import AppHeader from './Header/AppHeader/AppHeader';
 import MenuPage from './Menu/MenuPage/MenuPage';
 import OrderHistory from './OrderHistory/OrderHistory/OrderHistory';
-import ErrorNotification from './ErrorNotification';
 // styles
 import styles from './App.module.css';
 
@@ -56,7 +55,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { isModalOpen, error } = this.state;
+    const { isModalOpen } = this.state;
 
     return (
       <div>
@@ -77,7 +76,6 @@ export default class App extends Component {
         <Tab />
         <br />
         <MenuPage />
-        {error && <ErrorNotification />}
         <OrderHistory />
       </div>
     );

@@ -12,17 +12,11 @@ const navItems = ['Menu', 'About', 'Contacts'];
 
 const AppHeader = () => (
   <header className={styles.header}>
-    <div className={styles.logo}>
-      <Logo image={logo} width={100} height={100} />
-    </div>
+    <Logo image={logo} />
 
-    <div className="app_nav">
-      <AppNav items={navItems} />
-    </div>
+    <AppNav items={navItems} />
 
-    <div className={styles.usermenu}>
-      <UserMenu avatar={avatar} name="Jordan Walke" />
-    </div>
+    <UserMenu avatar={avatar} name="Jordan Walke" />
   </header>
 );
 
