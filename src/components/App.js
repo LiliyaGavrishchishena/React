@@ -1,85 +1,23 @@
-import React, { Component, createRef } from 'react';
-// components
-import Modal from './Modal/Modal';
-import Backdrop from './Backdrop/Backdrop';
-import Tab from './Tabs/Tab/Tab';
-import AppHeader from './Header/AppHeader/AppHeader';
-import MenuPage from './Menu/MenuPage/MenuPage';
-import OrderHistory from './OrderHistory/OrderHistory/OrderHistory';
-import ErrorNotification from './ErrorNotification';
-// styles
-import styles from './App.module.css';
+import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-export default class App extends Component {
-  containerRef = createRef();
+import AppHeader from './AppHeader';
+import HomePage from '../pages/HomePage';
+import MenuPage from '../pages/MenuPage';
+import MenuItemPage from '../pages/MenuItemPage';
+import AddMenuPage from '../pages/AddMenuPage';
+import routes from '../configs/routes';
 
-  state = { isModalOpen: false };
-
-  componentDidMount() {
-    window.addEventListener('click', this.handleWindowClick);
-    window.addEventListener('keyup', this.handleEscapeKeyPress);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('click', this.handleWindowClick);
-    window.removeEventListener('keyup', this.handleEscapeKeyPress);
-  }
-
-  handleWindowClick = e => {
-    const isTargetInsideContainer = this.containerRef.current.contains(
-      e.target,
-    );
-    const { isModalOpen } = this.state;
-
-    if (isModalOpen && !isTargetInsideContainer) {
-      this.closeModal();
-    }
-  };
-
-  handleEscapeKeyPress = e => {
-    e.preventDefault();
-    if (e.keyCode === 27) {
-      this.closeModal();
-    }
-  };
-
-  openModal = () => {
-    this.setState({
-      isModalOpen: true,
-    });
-  };
-
-  closeModal = () => {
-    this.setState({
-      isModalOpen: false,
-    });
-  };
-
-  render() {
-    const { isModalOpen, error } = this.state;
-
-    return (
-      <div>
-        <AppHeader />
-        <button
-          className={styles.btn_openModal}
-          type="button"
-          onClick={this.openModal}
-          ref={this.containerRef}
-        >
-          Payment details
-        </button>
-        {isModalOpen && (
-          <Backdrop>
-            <Modal onClose={this.closeModal} />
-          </Backdrop>
-        )}
-        <Tab />
-        <br />
-        <MenuPage />
-        {error && <ErrorNotification />}
-        <OrderHistory />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <>
+    <AppHeader />
+    <Switch>
+      <Route exact path={routes.MAIN} component={HomePage} />
+      <Route exact path={routes.MENU} component={MenuPage} />
+      <Route exact path={routes.ADD_MENU_ITEM} component={AddMenuPage} />
+      <Route path={routes.MENU_ITEM} component={MenuItemPage} />
+      <Redirect to="/" />
+    </Switch>
+  </>
+);
+export default App;
