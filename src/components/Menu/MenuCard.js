@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import MenuItem from './MenuItem';
-import * as API from '../services/api';
+import * as API from '../../services/api';
 
 class MenuCard extends Component {
   state = {

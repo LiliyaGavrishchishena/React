@@ -8,15 +8,22 @@ const MenuGrid = ({ items, match, location }) => (
       {items.map(({ id, name, image, price }) => (
         <li key={id} className={styles.item}>
           <Link
+            className={styles.link}
             to={{
               pathname: `${match.url}/${id}`,
               state: { from: location },
             }}
           >
-            <h4>{name}</h4>
-            <img src={image} width="150px" height="100px" alt={name} />
+            <img
+              className={styles.img}
+              src={image}
+              width="150px"
+              height="100px"
+              alt={name}
+            />
+            <h4 className={styles.head}>{name}</h4>
             <p>
-              <b>{price} UAH</b>
+              <b className={styles.price}>{price} UAH</b>
             </p>
           </Link>
         </li>

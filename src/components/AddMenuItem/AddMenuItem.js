@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import AddMenuItemForm from './AddMenuItemForm';
-import * as API from '../services/api';
+import * as API from '../../services/api';
 
 const INITIAL_STATE = {
   name: '',

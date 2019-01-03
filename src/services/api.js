@@ -24,6 +24,11 @@ export const getMenuItemsWithCategory = async category => {
   return response.data;
 };
 
+export const deleteMenuItem = async id => {
+  const response = await axios.delete(`/menu/${id}`);
+  return response;
+};
+
 export const addMenuItem = async ({
   name,
   price,
@@ -37,6 +42,33 @@ export const addMenuItem = async ({
     image,
     description,
     category,
+  });
+
+  return response;
+};
+//= ===============
+
+export const getAllyOrderHistoryItems = async () => {
+  const response = await axios.get('/history');
+  return response.data;
+};
+
+export const getOrderHistoryItemById = async id => {
+  const response = await axios.get(`/history/${id}`);
+  return response.data;
+};
+
+export const deleteOrderHistoryItem = async id => {
+  const response = await axios.delete(`/history/${id}`);
+  return response;
+};
+
+export const addOrderHistoryItem = async ({ date, price, address, rating }) => {
+  const response = await axios.post('/history', {
+    date,
+    price,
+    address,
+    rating,
   });
 
   return response;

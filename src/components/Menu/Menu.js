@@ -4,7 +4,9 @@ import queryString from 'query-string';
 // components
 import Filter from './Filter';
 import MenuGrid from './MenuGrid';
-import * as API from '../services/api';
+import * as API from '../../services/api';
+
+import styles from './Menu.module.css';
 
 const getCategoryFromProps = props =>
   queryString.parse(props.location.search).category;
@@ -79,7 +81,11 @@ class Menu extends Component {
           onSubmit={this.handleResetFilter}
         />
         {category && (
-          <button type="button" onClick={this.handleClearFilter}>
+          <button
+            className={styles.button}
+            type="button"
+            onClick={this.handleClearFilter}
+          >
             Clear
           </button>
         )}

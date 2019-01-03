@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './AddMenuItemForm.module.css';
 
 const AddMenuItemForm = ({
   onSubmit,
@@ -13,22 +14,25 @@ const AddMenuItemForm = ({
   price,
 }) => (
   <>
-    <form onSubmit={onSubmit}>
+    <form className={styles.form} onSubmit={onSubmit}>
       <input
+        className={styles.input}
         onChange={onChange}
         value={name}
         type="text"
         name="name"
-        placeholder="Name"
+        placeholder="Dish"
         required
       />
       <textarea
+        className={styles.input}
         onChange={onChange}
         value={description}
         name="description"
         placeholder="Description"
         required
       />
+      <p>Check our category</p>
       <select onChange={onChange} value={category} name="category">
         <option value="" disabled>
           ...
@@ -39,6 +43,7 @@ const AddMenuItemForm = ({
           </option>
         ))}
       </select>
+      <p>Put your price</p>
       <input
         onChange={onChange}
         value={price}
@@ -58,7 +63,9 @@ const AddMenuItemForm = ({
           Download
         </a>
       </label>
-      <button type="submit">Add</button>
+      <button className={styles.button} type="submit">
+        Add
+      </button>
     </form>
   </>
 );
