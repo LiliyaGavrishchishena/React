@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import OrderHistoryGrid from '../components/OrderHistory/OrderHistoryGrid';
+import Spiner from '../components/Spiner/Spiner';
+import Modal from '../components/Modal/Modal';
+
 import * as API from '../services/api';
 
 export default class OrderHistoryPage extends Component {
-  state = { history: [] };
+  state = { history: [], historyNote: null, isLoading: false };
 
   componentDidMount() {
+    this.setState({ isLoading: true });
     API.getAllyOrderHistoryItems().then(history => {
-      this.setState({ history });
+      this.setState({ history, isLoading: false });
     });
   }
 
@@ -22,18 +26,41 @@ export default class OrderHistoryPage extends Component {
   };
 
   handleShowMoreInfo = id => {
-    API.getOrderHistoryItemById(id).then(item => console.log(item));
+    this.setState({ isLoading: true });
+    API.getOrderHistoryItemById(id).then(item =>
+      setTimeout(() => {
+        this.setState({ historyNote: item, isLoading: false });
+      }, 300),
+    );
+  };
+
+  closeModal = () => {
+    this.setState({ historyNote: null });
   };
 
   render() {
-    const { history } = this.state;
+    const { history, historyNote, isLoading } = this.state;
     return (
       <div>
-        <OrderHistoryGrid
-          history={history}
-          onDelete={this.handleDeleteItem}
-          onShowMoreInfo={this.handleShowMoreInfo}
-        />
+        {isLoading ? (
+          <Spiner />
+        ) : (
+          <OrderHistoryGrid
+            history={history}
+            onDelete={this.handleDeleteItem}
+            onShowMoreInfo={this.handleShowMoreInfo}
+          />
+        )}
+
+        {historyNote && (
+          <Modal onClose={this.closeModal}>
+            <h1>Order History</h1>
+            <p>Date - {historyNote.date}</p>
+            <p>Price - {historyNote.price}</p>
+            <p>Delivery address - {historyNote.address}</p>
+            <p>Rating - {historyNote.rating}</p>
+          </Modal>
+        )}
       </div>
     );
   }

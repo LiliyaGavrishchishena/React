@@ -6,19 +6,19 @@ export default [
     path: routes.MAIN,
   },
   {
-    name: 'Authentication',
-    path: routes.AUTH,
+    name: 'About',
+    path: routes.ABOUT,
   },
   {
     name: 'Menu',
     path: routes.MENU,
   },
   {
-    name: 'Add menu item',
-    path: routes.ADD_MENU_ITEM,
+    name: 'Delivery',
+    path: routes.DELIVERY,
   },
   {
-    name: 'Order history',
-    path: routes.HISTORY,
+    name: 'Contacts',
+    path: routes.CONTACT,
   },
 ];

@@ -3,7 +3,7 @@ import React from 'react';
 import AppNav from './AppNav';
 import Logo from './Logo';
 import UserMenu from './UserMenu';
-import navItems from '../../configs/nav';
+import navItems from '../../configs/main-nav';
 import appLogo from './assets/logo.png';
 import avatar from './assets/avatar.png';
 import styles from './AppHeader.module.css';

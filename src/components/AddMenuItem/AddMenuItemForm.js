@@ -59,9 +59,7 @@ const AddMenuItemForm = ({
           <p>Check our picture</p>
         )}
         <input type="file" name="image" value={image} onChange={onChange} />
-        <a href="/" download>
-          Download
-        </a>
+        <a href="/">Download</a>
       </label>
       <button className={styles.button} type="submit">
         Add

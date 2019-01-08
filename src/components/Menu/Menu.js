@@ -67,6 +67,7 @@ class Menu extends Component {
     return (
       <div>
         <Link
+          className={styles.button}
           to={{
             pathname: `${match.url}/add`,
             state: { from: location },
@@ -74,6 +75,7 @@ class Menu extends Component {
         >
           Add
         </Link>
+        <br />
         <Filter
           categories={categories}
           value={category}

@@ -6,10 +6,15 @@ import styles from './AppNav.module.css';
 
 const AppNav = ({ items = [] }) => (
   <ul className={styles.list}>
-    {items.map(item => (
-      <li key={item.name} className={styles.link}>
-        <NavLink to={item.path} className={styles.link}>
-          {item.name}
+    {items.map(({ name, path }) => (
+      <li key={name} className={styles.link}>
+        <NavLink
+          exact
+          to={path}
+          activeClassName={styles.active}
+          className={styles.link}
+        >
+          {name}
         </NavLink>
       </li>
     ))}

@@ -23,8 +23,12 @@ class MenuCard extends Component {
   }
 
   handleGoBack = () => {
-    const { state, history } = this.props;
+    const {
+      location: { state },
+      history,
+    } = this.props;
     const { category } = this.state;
+    console.log(state);
 
     if (state) {
       return history.push(state.from);

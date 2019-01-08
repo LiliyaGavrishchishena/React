@@ -17,8 +17,8 @@ const MenuGrid = ({ items, match, location }) => (
             <img
               className={styles.img}
               src={image}
-              width="150px"
-              height="100px"
+              width="250px"
+              min-height="200px"
               alt={name}
             />
             <h4 className={styles.head}>{name}</h4>
