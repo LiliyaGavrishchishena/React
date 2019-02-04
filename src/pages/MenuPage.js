@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Menu from '../components/Menu/Menu';
+import MenuContainer from '../modules/Menu/MenuContainer';
 
-const MenuPage = () => <Menu />;
+const MenuPage = () => <MenuContainer />;
 
 export default MenuPage;

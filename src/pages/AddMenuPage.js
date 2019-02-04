@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AddMenuItem from '../components/AddMenuItem/AddMenuItem';
+import AddMenuItem from '../modules/Menu/AddMenuItem/AddMenuItem';
 
 const AddMenuPage = () => <AddMenuItem />;
 

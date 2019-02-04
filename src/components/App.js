@@ -5,7 +5,7 @@ import AppHeader from './AppHeader/AppHeader';
 import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
-import Spiner from './Spiner/Spiner';
+import Spiner from '../modules/Spiner/Spiner';
 
 import routes from '../configs/routes';
 
@@ -37,6 +37,10 @@ const AsyncMealPlannerPage = lazy(() =>
   import('../pages/MealPlannerPage' /* webpackChunkName: "planner-page" */),
 );
 
+const AsyncCartPage = lazy(() =>
+  import('../pages/CartPage' /* webpackChunkName: "cart-page" */),
+);
+
 const AsyncDeliveryPage = lazy(() =>
   import('../pages/DeliveryPage' /* webpackChunkName: "delivery-page" */),
 );
@@ -57,6 +61,7 @@ const App = () => (
         <Route exact path={routes.HISTORY} component={AsyncOrderHistoryPage} />
         <Route exact path={routes.ACCOUNT} component={AsyncAccountPage} />
         <Route exact path={routes.PLANNER} component={AsyncMealPlannerPage} />
+        <Route exact path={routes.CART} component={AsyncCartPage} />
         <Route exact path={routes.DELIVERY} component={AsyncDeliveryPage} />
         <Redirect to="/" />
       </Switch>

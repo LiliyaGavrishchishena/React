@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Authentication from '../components/Authentication/Authentication';
-import SignIn from '../components/Authentication/SignIn';
-import SignUp from '../components/Authentication/SignUp';
+import Authentication from '../modules/Authentication/Authentication';
+import SignIn from '../modules/Authentication/SignIn';
+import SignUp from '../modules/Authentication/SignUp';
 
 const AuthenticationPage = () => (
   <div>
