@@ -9,8 +9,11 @@ import Spiner from '../modules/Spiner/Spiner';
 
 import routes from '../configs/routes';
 
-const AsyncAuthenticationPage = lazy(() =>
-  import('../pages/AuthenticationPage' /* webpackChunkName: "auth-page" */),
+const AsyncSignUpPage = lazy(() =>
+  import('../pages/SignUpPage' /* webpackChunkName: "sign-up-page" */),
+);
+const AsyncSignInPage = lazy(() =>
+  import('../pages/SignInPage' /* webpackChunkName: "sign-in-page" */),
 );
 
 const AsyncMenuPage = lazy(() =>
@@ -51,10 +54,11 @@ const App = () => (
 
     <Suspense fallback={Spiner}>
       <Switch>
+        <Route exact path={routes.SIGNIN} component={AsyncSignInPage} />
+        <Route exact path={routes.SIGNUP} component={AsyncSignUpPage} />
         <Route exact path={routes.MAIN} component={HomePage} />
         <Route exact path={routes.ABOUT} component={AboutPage} />
         <Route exact path={routes.CONTACT} component={ContactPage} />
-        <Route exact path={routes.AUTH} component={AsyncAuthenticationPage} />
         <Route exact path={routes.MENU} component={AsyncMenuPage} />
         <Route exact path={routes.ADD_MENU_ITEM} component={AsyncAddMenuPage} />
         <Route exact path={routes.MENU_ITEM} component={AsyncMenuItemPage} />

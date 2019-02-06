@@ -12,12 +12,18 @@ const CartView = ({
   menu.length > 0 ? (
     <div>
       <h2>YOUR CART NOW IS FULL OF:</h2>
-      <ul className={styles.container}>
+      <ul className={styles.list}>
         {menu.map(({ id, name, price, image, amount }) => (
-          <li key={id}>
-            <h3>{name}</h3>
-            <img src={image} width="100" height="100" alt="menuItemPhoto" />
-            <div>
+          <li key={id} className={styles.item}>
+            <h3 className={styles.name}>{name}</h3>
+            <img
+              className={styles.image}
+              src={image}
+              width="100"
+              height="100"
+              alt="menuItemPhoto"
+            />
+            <div className={styles.amountWrap}>
               <button type="button" onClick={() => decrementAmount(id)}>
                 -
               </button>
@@ -26,15 +32,19 @@ const CartView = ({
                 +
               </button>
             </div>
-            <div>
+            <div className={styles.amountWrap}>
               <p>
                 Price:
-                <span>{price}</span>
+                <span className={styles.price}>{price}</span>
                 UAH
               </p>
             </div>
             <div>
-              <button type="button" onClick={() => removeFromCart(id)}>
+              <button
+                type="button"
+                className={styles.button}
+                onClick={() => removeFromCart(id)}
+              >
                 DELETE
               </button>
             </div>
@@ -43,7 +53,7 @@ const CartView = ({
       </ul>
       <p>
         Total Price:
-        <span>{totalPrice}</span>
+        <span className={styles.total}>{totalPrice}</span>
         UAH
       </p>
     </div>

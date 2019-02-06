@@ -8,7 +8,7 @@ import navItems from '../../configs/main-nav';
 import appLogo from './assets/logo.png';
 import avatar from '../../modules/User/assets/avatar.png';
 import styles from './AppHeader.module.css';
-// import Authentication from '../../modules/Authentication/Authentication';
+import Authentication from '../../modules/Authentication/Authentication';
 
 // styles
 
@@ -17,7 +17,7 @@ const AppHeader = () => (
     <Logo className={styles.logo} image={appLogo} />
     <AppNav className={styles.nav} items={navItems} />
     <CartLinkContainer />
-    {/* <Authentication /> */}
+    <Authentication />
     <div className={styles.usermenu}>
       <UserMenu avatar={avatar} name="Liliya" />
     </div>

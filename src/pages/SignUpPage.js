@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   passwordRepeate: '',
 };
 
-export default class SignUp extends Component {
+export default class SignUpPage extends Component {
   state = { ...INITIAL_STATE };
 
   handleChange = e => {

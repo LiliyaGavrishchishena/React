@@ -6,7 +6,7 @@ const INITIAL_STATE = {
   password: '',
 };
 
-export default class SignIn extends Component {
+export default class SignInPage extends Component {
   state = { ...INITIAL_STATE };
 
   handleChange = e => {

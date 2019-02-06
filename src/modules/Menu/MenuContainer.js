@@ -40,12 +40,22 @@ class MenuContainer extends Component {
     }
   }
 
+  resetCategory = () => {
+    const { history } = this.props;
+
+    history.push({
+      pathname: '/menu',
+      serch: '',
+    });
+  };
+
   handleClearFilter = event => {
     event.preventDefault();
     const { history, location, fetchMenuItems } = this.props;
     fetchMenuItems();
     return history.replace({
       pathname: location.pathname,
+      serch: '',
     });
   };
 
@@ -59,7 +69,14 @@ class MenuContainer extends Component {
   };
 
   render() {
-    const { match, location, menu, categories, addToCart } = this.props;
+    const {
+      match,
+      location,
+      menu,
+      categories,
+      addToCart,
+      resetCategory,
+    } = this.props;
     const category = getCategoryFromProps(this.props);
     return (
       <div>
@@ -67,6 +84,7 @@ class MenuContainer extends Component {
           categories={categories}
           value={category}
           onChange={this.handleCategoryChange}
+          onSubmit={this.handleClearFilter}
         />
 
         {category && (
@@ -84,6 +102,7 @@ class MenuContainer extends Component {
           match={match}
           location={location}
           addToCart={addToCart}
+          resetCategory={resetCategory}
         />
         <Link
           className={styles.button}
