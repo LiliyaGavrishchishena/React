@@ -1,4 +1,3 @@
-//
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +5,7 @@ import routes from '../../configs/routes';
 
 import styles from './Authentication.module.css';
 
-const Auth = () => (
+const Authentication = () => (
   <div className={styles.wrap}>
     <Link className={styles.link} to={routes.SIGNUP}>
       Sign up
@@ -17,4 +16,4 @@ const Auth = () => (
   </div>
 );
 
-export default Auth;
+export default Authentication;

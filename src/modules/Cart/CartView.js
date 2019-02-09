@@ -10,8 +10,8 @@ const CartView = ({
   decrementAmount,
 }) =>
   menu.length > 0 ? (
-    <div>
-      <h2>YOUR CART NOW IS FULL OF:</h2>
+    <div className={styles.cart}>
+      <h2 className={styles.full}>YOUR CART NOW IS FULL OF:</h2>
       <ul className={styles.list}>
         {menu.map(({ id, name, price, image, amount }) => (
           <li key={id} className={styles.item}>
@@ -23,7 +23,7 @@ const CartView = ({
               height="100"
               alt="menuItemPhoto"
             />
-            <div className={styles.amountWrap}>
+            <div className={styles.wrapper}>
               <button type="button" onClick={() => decrementAmount(id)}>
                 -
               </button>

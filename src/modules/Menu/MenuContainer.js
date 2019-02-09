@@ -10,7 +10,6 @@ import {
   categoriesOperations,
 } from '../../redux/categories';
 
-// components
 import CategorySelector from './CategorySelector';
 import MenuView from './MenuView';
 
@@ -82,21 +81,22 @@ class MenuContainer extends Component {
       <div>
         <CategorySelector
           categories={categories}
-          value={category}
+          category={category}
           onChange={this.handleCategoryChange}
           onSubmit={this.handleClearFilter}
         />
-
         {category && (
-          <button
-            className={styles.button}
-            type="button"
-            onClick={this.handleClearFilter}
-          >
-            Clear
-          </button>
+          <>
+            <button
+              className={styles.button}
+              type="button"
+              onClick={this.handleClearFilter}
+            >
+              Clear
+            </button>
+            <p>Your choose now is: {category}</p>
+          </>
         )}
-        {category && <p>Your choose now is: {category}</p>}
         <MenuView
           items={menu}
           match={match}

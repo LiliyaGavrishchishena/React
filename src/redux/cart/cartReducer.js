@@ -36,7 +36,8 @@ function amount(state = {}, { type, payload }) {
       };
 
     case types.REMOVE_FROM_CART: {
-      const { [payload.id]: _, ...newState } = state;
+      const key = String(payload.id);
+      const { [key]: _, ...newState } = state;
 
       return newState;
     }

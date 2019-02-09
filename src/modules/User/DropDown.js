@@ -5,7 +5,7 @@ import userNav from '../../configs/user-nav';
 
 import styles from './DropDown.module.css';
 
-const DropDown = () => (
+const DropDown = ({ signOut = () => null }) => (
   <div className={styles.container}>
     <ul className={styles.list}>
       {userNav.map(({ name, path }) => (
@@ -16,7 +16,9 @@ const DropDown = () => (
         </li>
       ))}
     </ul>
-    <button type="button">Loggout</button>
+    <button type="button" onClick={signOut}>
+      Loggout
+    </button>
   </div>
 );
 

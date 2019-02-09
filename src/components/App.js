@@ -1,11 +1,15 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import AppHeader from './AppHeader/AppHeader';
 import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
 import Spiner from '../modules/Spiner/Spiner';
+import ProtectedRoute from '../modules/ProtectedRoute/ProtectedRoute';
+
+import authOperations from '../redux/auth/authOperations';
 
 import routes from '../configs/routes';
 
@@ -48,28 +52,67 @@ const AsyncDeliveryPage = lazy(() =>
   import('../pages/DeliveryPage' /* webpackChunkName: "delivery-page" */),
 );
 
-const App = () => (
-  <>
-    <AppHeader />
+class App extends Component {
+  componentDidMount() {
+    const { getUser } = this.props;
+    getUser();
+  }
 
-    <Suspense fallback={Spiner}>
-      <Switch>
-        <Route exact path={routes.SIGNIN} component={AsyncSignInPage} />
-        <Route exact path={routes.SIGNUP} component={AsyncSignUpPage} />
-        <Route exact path={routes.MAIN} component={HomePage} />
-        <Route exact path={routes.ABOUT} component={AboutPage} />
-        <Route exact path={routes.CONTACT} component={ContactPage} />
-        <Route exact path={routes.MENU} component={AsyncMenuPage} />
-        <Route exact path={routes.ADD_MENU_ITEM} component={AsyncAddMenuPage} />
-        <Route exact path={routes.MENU_ITEM} component={AsyncMenuItemPage} />
-        <Route exact path={routes.HISTORY} component={AsyncOrderHistoryPage} />
-        <Route exact path={routes.ACCOUNT} component={AsyncAccountPage} />
-        <Route exact path={routes.PLANNER} component={AsyncMealPlannerPage} />
-        <Route exact path={routes.CART} component={AsyncCartPage} />
-        <Route exact path={routes.DELIVERY} component={AsyncDeliveryPage} />
-        <Redirect to="/" />
-      </Switch>
-    </Suspense>
-  </>
-);
-export default App;
+  render() {
+    return (
+      <>
+        <AppHeader />
+
+        <Suspense fallback={Spiner}>
+          <Switch>
+            <Route exact path={routes.SIGNIN} component={AsyncSignInPage} />
+            <Route exact path={routes.SIGNUP} component={AsyncSignUpPage} />
+            <Route exact path={routes.MAIN} component={HomePage} />
+            <Route exact path={routes.ABOUT} component={AboutPage} />
+            <Route exact path={routes.CONTACT} component={ContactPage} />
+            <Route exact path={routes.MENU} component={AsyncMenuPage} />
+            <Route
+              exact
+              path={routes.ADD_MENU_ITEM}
+              component={AsyncAddMenuPage}
+            />
+            <Route
+              exact
+              path={routes.MENU_ITEM}
+              component={AsyncMenuItemPage}
+            />
+            <ProtectedRoute
+              exact
+              path={routes.HISTORY}
+              component={AsyncOrderHistoryPage}
+              redirectTo="/signin"
+            />
+            <ProtectedRoute
+              exact
+              path={routes.ACCOUNT}
+              component={AsyncAccountPage}
+              redirectTo="/signin"
+            />
+            <ProtectedRoute
+              exact
+              path={routes.PLANNER}
+              component={AsyncMealPlannerPage}
+              redirectTo="/signin"
+            />
+            <Route exact path={routes.CART} component={AsyncCartPage} />
+            <Route exact path={routes.DELIVERY} component={AsyncDeliveryPage} />
+            <Redirect to="/" />
+          </Switch>
+        </Suspense>
+      </>
+    );
+  }
+}
+const mapDispatchToProp = {
+  getUser: authOperations.getCurrentUser,
+};
+
+export default connect(
+  null,
+  mapDispatchToProp,
+)(App);

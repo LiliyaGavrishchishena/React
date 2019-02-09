@@ -1,7 +1,12 @@
+.cart {
+  color: #fff;
+  background: url(../../modules/Cart/assets/tekstura_dereva.jpg);
+}
 .container {
   display: flex;
   justify-content: center;
 }
+
 .list {
   display: flex;
   flex-direction: column;
@@ -10,11 +15,12 @@
   margin: 0;
   margin-bottom: 15px;
 }
-
+.full {
+  color: #fff;
+}
 .item {
   display: flex;
   width: 100%;
-  background-color: #bbbaba1f;
   padding: 10px;
 }
 
@@ -33,59 +39,48 @@
 
 .name {
   margin: 0;
-  width: 50%;
-  min-width: 150px;
+  min-width: 400px;
+  color: #fff;
 }
-.priceWrap {
-  width: 60px;
+.amount {
+  font-size: 28px;
+  color: #fea100;
 }
+
 .price {
-  width: 10%;
-  margin: 0;
-  line-height: 1rem;
-  font-size: 1.25rem;
-  margin: 0;
+  font-size: 28px;
+  padding-left: 10px;
+  margin: 7px 0;
+  display: inline-block;
+  font-weight: bold;
 }
 
-.btnWrap,
-.dishWrap {
-  display: flex;
-  align-items: center;
-}
-.dishWrap {
-  justify-content: start;
-  text-decoration: none;
-  color: #8d8173;
-}
-
-.btnWrap {
-  justify-content: center;
-  flex-direction: column;
-}
-
-.amountValue {
-  line-height: 1rem;
-  font-size: 1.25rem;
-  margin: 0;
-}
-.amountWrap {
+.wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-width: 120px;
-  border: 1px solid #b2b2b2;
+  border: 1px solid #fea100;
   border-radius: 5px;
-  padding: 5px;
-  background-color: #fff;
+  padding: 10px;
+  background-color: rgba(117, 190, 218, 0.5);
 }
 
 .image {
   margin-right: 20px;
   overflow: hidden;
 }
+
 .total {
+  font-size: 28px;
+  padding-left: 10px;
+  margin: 7px 0;
+  display: inline-block;
   font-weight: bold;
+  padding: 10px;
+  background-color: rgba(117, 190, 218, 0.5);
 }
+
 .button {
   width: 100%;
   height: 40px;
