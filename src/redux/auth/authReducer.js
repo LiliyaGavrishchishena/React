@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import * as types from './authActionsTypes';
+import types from './authActionsTypes';
 
 const user = (state = null, { type, payload }) => {
   switch (type) {

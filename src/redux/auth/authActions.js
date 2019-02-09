@@ -1,4 +1,4 @@
-import * as types from './authActionsTypes';
+import types from './authActionsTypes';
 
 const authRequest = () => ({
   type: types.AUTH_REQUEST,
