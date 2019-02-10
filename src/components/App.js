@@ -28,10 +28,6 @@ const AsyncMenuItemPage = lazy(() =>
   import('../pages/MenuItemPage' /* webpackChunkName: "menu-item-page" */),
 );
 
-const AsyncAddMenuPage = lazy(() =>
-  import('../pages/AddMenuPage' /* webpackChunkName: "add-menu-page" */),
-);
-
 const AsyncOrderHistoryPage = lazy(() =>
   import('../pages/OrderHistoryPage' /* webpackChunkName: "history-page" */),
 );
@@ -71,11 +67,6 @@ class App extends Component {
             <Route exact path={routes.ABOUT} component={AboutPage} />
             <Route exact path={routes.CONTACT} component={ContactPage} />
             <Route exact path={routes.MENU} component={AsyncMenuPage} />
-            <Route
-              exact
-              path={routes.ADD_MENU_ITEM}
-              component={AsyncAddMenuPage}
-            />
             <Route
               exact
               path={routes.MENU_ITEM}

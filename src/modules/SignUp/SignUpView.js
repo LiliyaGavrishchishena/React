@@ -8,6 +8,7 @@ const SignUpView = ({
   phone,
   password,
   passwordRepeate,
+  isValidPass,
   onChange,
   onSubmit,
 }) => (
@@ -19,6 +20,7 @@ const SignUpView = ({
       value={name}
       placeholder="My name is"
       onChange={onChange}
+      required
     />
     <input
       className={styles.input}
@@ -27,6 +29,7 @@ const SignUpView = ({
       value={email}
       placeholder="My email"
       onChange={onChange}
+      required
     />
     <input
       className={styles.input}
@@ -35,22 +38,25 @@ const SignUpView = ({
       value={phone}
       placeholder="My phone"
       onChange={onChange}
+      required
     />
     <input
-      className={styles.input}
+      className={isValidPass ? styles.input : styles.inputFalse}
       type="password"
       name="password"
       value={password}
       placeholder="My password"
       onChange={onChange}
+      required
     />
     <input
-      className={styles.input}
+      className={isValidPass ? styles.input : styles.inputFalse}
       type="password"
       name="passwordRepeate"
       value={passwordRepeate}
       placeholder="Password once more"
       onChange={onChange}
+      required
     />
     <button className={styles.button} type="submit">
       Sign Up

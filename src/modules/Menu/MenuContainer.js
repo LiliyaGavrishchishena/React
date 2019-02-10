@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 import { connect } from 'react-redux';
 
@@ -104,15 +104,6 @@ class MenuContainer extends Component {
           addToCart={addToCart}
           resetCategory={resetCategory}
         />
-        <Link
-          className={styles.button}
-          to={{
-            pathname: `${match.url}/add`,
-            state: { from: location },
-          }}
-        >
-          Add
-        </Link>
       </div>
     );
   }

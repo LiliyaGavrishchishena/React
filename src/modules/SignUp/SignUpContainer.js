@@ -9,6 +9,7 @@ const INITIAL_STATE = {
   phone: '',
   password: '',
   passwordRepeate: '',
+  isValidPass: true,
 };
 
 class SignUpContainer extends Component {
@@ -24,6 +25,13 @@ class SignUpContainer extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    const { password, passwordRepeate } = this.state;
+
+    if (password !== passwordRepeate) {
+      this.setState({ isValidPass: false });
+      return;
+    }
+
     const { signUp } = this.props;
     signUp({ ...this.state });
     this.reset();

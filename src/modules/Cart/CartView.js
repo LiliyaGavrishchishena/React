@@ -35,7 +35,7 @@ const CartView = ({
             <div className={styles.amountWrap}>
               <p>
                 Price:
-                <span className={styles.price}>{price}</span>
+                <span className={styles.price}>{price * amount}</span>
                 UAH
               </p>
             </div>
