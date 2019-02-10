@@ -1,85 +1,109 @@
-import React, { Component, createRef } from 'react';
-// components
-import Modal from './Modal/Modal';
-import Backdrop from './Backdrop/Backdrop';
-import Tab from './Tabs/Tab/Tab';
-import AppHeader from './Header/AppHeader/AppHeader';
-import MenuPage from './Menu/MenuPage/MenuPage';
-import OrderHistory from './OrderHistory/OrderHistory/OrderHistory';
-import ErrorNotification from './ErrorNotification';
-// styles
-import styles from './App.module.css';
+import React, { Component, lazy, Suspense } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class App extends Component {
-  containerRef = createRef();
+import AppHeader from './AppHeader/AppHeader';
+import HomePage from '../pages/HomePage';
+import AboutPage from '../pages/AboutPage';
+import ContactPage from '../pages/ContactPage';
+import Spiner from '../modules/Spiner/Spiner';
+import ProtectedRoute from '../modules/ProtectedRoute/ProtectedRoute';
 
-  state = { isModalOpen: false };
+import authOperations from '../redux/auth/authOperations';
 
+import routes from '../configs/routes';
+
+const AsyncSignUpPage = lazy(() =>
+  import('../pages/SignUpPage' /* webpackChunkName: "sign-up-page" */),
+);
+const AsyncSignInPage = lazy(() =>
+  import('../pages/SignInPage' /* webpackChunkName: "sign-in-page" */),
+);
+
+const AsyncMenuPage = lazy(() =>
+  import('../pages/MenuPage' /* webpackChunkName: "menu-page" */),
+);
+
+const AsyncMenuItemPage = lazy(() =>
+  import('../pages/MenuItemPage' /* webpackChunkName: "menu-item-page" */),
+);
+
+const AsyncOrderHistoryPage = lazy(() =>
+  import('../pages/OrderHistoryPage' /* webpackChunkName: "history-page" */),
+);
+
+const AsyncAccountPage = lazy(() =>
+  import('../pages/AccountPage' /* webpackChunkName: "account-page" */),
+);
+
+const AsyncMealPlannerPage = lazy(() =>
+  import('../pages/MealPlannerPage' /* webpackChunkName: "planner-page" */),
+);
+
+const AsyncCartPage = lazy(() =>
+  import('../pages/CartPage' /* webpackChunkName: "cart-page" */),
+);
+
+const AsyncDeliveryPage = lazy(() =>
+  import('../pages/DeliveryPage' /* webpackChunkName: "delivery-page" */),
+);
+
+class App extends Component {
   componentDidMount() {
-    window.addEventListener('click', this.handleWindowClick);
-    window.addEventListener('keyup', this.handleEscapeKeyPress);
+    const { getUser } = this.props;
+    getUser();
   }
-
-  componentWillUnmount() {
-    window.removeEventListener('click', this.handleWindowClick);
-    window.removeEventListener('keyup', this.handleEscapeKeyPress);
-  }
-
-  handleWindowClick = e => {
-    const isTargetInsideContainer = this.containerRef.current.contains(
-      e.target,
-    );
-    const { isModalOpen } = this.state;
-
-    if (isModalOpen && !isTargetInsideContainer) {
-      this.closeModal();
-    }
-  };
-
-  handleEscapeKeyPress = e => {
-    e.preventDefault();
-    if (e.keyCode === 27) {
-      this.closeModal();
-    }
-  };
-
-  openModal = () => {
-    this.setState({
-      isModalOpen: true,
-    });
-  };
-
-  closeModal = () => {
-    this.setState({
-      isModalOpen: false,
-    });
-  };
 
   render() {
-    const { isModalOpen, error } = this.state;
-
     return (
-      <div>
+      <>
         <AppHeader />
-        <button
-          className={styles.btn_openModal}
-          type="button"
-          onClick={this.openModal}
-          ref={this.containerRef}
-        >
-          Payment details
-        </button>
-        {isModalOpen && (
-          <Backdrop>
-            <Modal onClose={this.closeModal} />
-          </Backdrop>
-        )}
-        <Tab />
-        <br />
-        <MenuPage />
-        {error && <ErrorNotification />}
-        <OrderHistory />
-      </div>
+
+        <Suspense fallback={Spiner}>
+          <Switch>
+            <Route exact path={routes.SIGNIN} component={AsyncSignInPage} />
+            <Route exact path={routes.SIGNUP} component={AsyncSignUpPage} />
+            <Route exact path={routes.MAIN} component={HomePage} />
+            <Route exact path={routes.ABOUT} component={AboutPage} />
+            <Route exact path={routes.CONTACT} component={ContactPage} />
+            <Route exact path={routes.MENU} component={AsyncMenuPage} />
+            <Route
+              exact
+              path={routes.MENU_ITEM}
+              component={AsyncMenuItemPage}
+            />
+            <ProtectedRoute
+              exact
+              path={routes.HISTORY}
+              component={AsyncOrderHistoryPage}
+              redirectTo="/signin"
+            />
+            <ProtectedRoute
+              exact
+              path={routes.ACCOUNT}
+              component={AsyncAccountPage}
+              redirectTo="/signin"
+            />
+            <ProtectedRoute
+              exact
+              path={routes.PLANNER}
+              component={AsyncMealPlannerPage}
+              redirectTo="/signin"
+            />
+            <Route exact path={routes.CART} component={AsyncCartPage} />
+            <Route exact path={routes.DELIVERY} component={AsyncDeliveryPage} />
+            <Redirect to="/" />
+          </Switch>
+        </Suspense>
+      </>
     );
   }
 }
+const mapDispatchToProp = {
+  getUser: authOperations.getCurrentUser,
+};
+
+export default connect(
+  null,
+  mapDispatchToProp,
+)(App);

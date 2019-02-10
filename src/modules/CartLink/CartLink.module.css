@@ -1,0 +1,26 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.amount {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #fea100;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.image {
+  width: 30px;
+  height: 30px;
+}
