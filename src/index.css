@@ -21,18 +21,3 @@ li {
   padding: 0;
   margin: 0;
 }
-
-p {
-  line-height: 1.8em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  color: #14141d;
-}

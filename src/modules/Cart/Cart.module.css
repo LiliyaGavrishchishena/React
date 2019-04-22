@@ -1,6 +1,6 @@
 .cart {
   color: #fff;
-  background: url(../../modules/Cart/assets/tekstura_dereva.jpg);
+  background: url(../../components/assets/tekstura_dereva.jpg);
 }
 .container {
   display: flex;

@@ -6,7 +6,7 @@ import Logo from './Logo';
 import UserMenu from '../../modules/User/UserMenu';
 import CartLinkContainer from '../../modules/CartLink/CartLinkContainer';
 import navItems from '../../configs/main-nav';
-import appLogo from './assets/logo.png';
+import appLogo from '../assets/logo.png';
 import avatar from '../../modules/User/assets/avatar.png';
 import styles from './AppHeader.module.css';
 import Authentication from '../../modules/Authentication/Authentication';
@@ -17,7 +17,7 @@ const AppHeader = ({ isAuthenticated, user, exit }) => (
   <header className={styles.header}>
     <Logo className={styles.logo} image={appLogo} />
     <AppNav className={styles.nav} items={navItems} />
-    <CartLinkContainer />
+    <CartLinkContainer className={styles.cart} />
     <div className={styles.usermenu}>
       {isAuthenticated ? (
         <UserMenu signOut={exit} user={user} avatar={avatar} />

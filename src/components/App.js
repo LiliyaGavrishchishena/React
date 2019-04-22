@@ -7,6 +7,7 @@ import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
 import Spiner from '../modules/Spiner/Spiner';
+import Footer from './Footer/Footer';
 import ProtectedRoute from '../modules/ProtectedRoute/ProtectedRoute';
 
 import authOperations from '../redux/auth/authOperations';
@@ -58,7 +59,6 @@ class App extends Component {
     return (
       <>
         <AppHeader />
-
         <Suspense fallback={Spiner}>
           <Switch>
             <Route exact path={routes.SIGNIN} component={AsyncSignInPage} />
@@ -95,6 +95,7 @@ class App extends Component {
             <Redirect to="/" />
           </Switch>
         </Suspense>
+        <Footer />
       </>
     );
   }

@@ -1,0 +1,30 @@
+.footer {
+  color: #fff;
+  background: url(../../components/assets/tekstura_dereva.jpg);
+}
+
+.footer_container {
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about {
+}
+.address {
+}
+.footer_header {
+}
+.contacts {
+}
+
+.map {
+  width: 300px;
+  height: 300px;
+}
+
+.marker {
+  width: 25px;
+  height: 25px;
+  fill: rgb(0, 174, 255);
+}
