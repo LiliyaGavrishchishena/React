@@ -1,6 +1,7 @@
 .cart {
   color: #fff;
-  background: url(../../components/assets/tekstura_dereva.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../components/assets/bg.jpg) no-repeat center center;
 }
 .container {
   display: flex;
@@ -13,7 +14,6 @@
   align-items: center;
   padding: 0;
   margin: 0;
-  margin-bottom: 15px;
 }
 .full {
   color: #fff;
@@ -60,7 +60,6 @@
   align-items: center;
   justify-content: space-between;
   min-width: 120px;
-  border: 1px solid #fea100;
   border-radius: 5px;
   padding: 10px;
   background-color: rgba(117, 190, 218, 0.5);
@@ -72,9 +71,11 @@
 }
 
 .total {
+  margin: 0;
+}
+.totalPrice {
   font-size: 28px;
   padding-left: 10px;
-  margin: 7px 0;
   display: inline-block;
   font-weight: bold;
   padding: 10px;

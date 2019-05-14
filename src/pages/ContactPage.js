@@ -1,4 +1,5 @@
 import React from 'react';
+import Map from '../modules/Map/Map';
 
 const ContactPage = () => (
   <div>
@@ -7,6 +8,7 @@ const ContactPage = () => (
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae
       eros eget tellus tristique bibendum. Donec rutrum sed sem quis venenatis.
     </p>
+    <Map />
   </div>
 );
 

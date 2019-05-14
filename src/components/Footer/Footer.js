@@ -1,7 +1,6 @@
 import React from 'react';
 import About from './About';
 import Contacts from './Contacts';
-import Map from './Map';
 // styles
 import styles from './Footer.module.css';
 
@@ -11,8 +10,6 @@ const Footer = () => (
       <About />
 
       <Contacts />
-
-      <Map />
     </div>
   </footer>
 );

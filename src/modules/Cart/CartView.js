@@ -51,9 +51,9 @@ const CartView = ({
           </li>
         ))}
       </ul>
-      <p>
+      <p className={styles.total}>
         Total Price:
-        <span className={styles.total}>{totalPrice}</span>
+        <span className={styles.totalPrice}>{totalPrice}</span>
         UAH
       </p>
     </div>

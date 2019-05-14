@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-import styles from './Footer.module.css';
+import styles from './Map.module.css';
 
 export default class Map extends Component {
   static defaultProps = {

@@ -1,5 +1,6 @@
 .home {
-  background: url(../components/assets/first-bg.jpg) no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../components/assets/first-bg.jpg) no-repeat center center;
   background-size: cover;
   height: 800px;
   margin: 0;
@@ -9,6 +10,8 @@
   font-size: 56px;
   color: #fff;
   font-weight: 700;
+  display: flex;
+  flex-wrap: wrap;
 }
 .span {
   color: #fea100;
