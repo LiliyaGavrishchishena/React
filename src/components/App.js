@@ -13,6 +13,7 @@ import ProtectedRoute from '../modules/ProtectedRoute/ProtectedRoute';
 import authOperations from '../redux/auth/authOperations';
 
 import routes from '../configs/routes';
+import styles from './App.module.css';
 
 const AsyncSignUpPage = lazy(() =>
   import('../pages/SignUpPage' /* webpackChunkName: "sign-up-page" */),
@@ -57,46 +58,52 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <AppHeader />
-        <Suspense fallback={Spiner}>
-          <Switch>
-            <Route exact path={routes.SIGNIN} component={AsyncSignInPage} />
-            <Route exact path={routes.SIGNUP} component={AsyncSignUpPage} />
-            <Route exact path={routes.MAIN} component={HomePage} />
-            <Route exact path={routes.ABOUT} component={AboutPage} />
-            <Route exact path={routes.CONTACT} component={ContactPage} />
-            <Route exact path={routes.MENU} component={AsyncMenuPage} />
-            <Route
-              exact
-              path={routes.MENU_ITEM}
-              component={AsyncMenuItemPage}
-            />
-            <ProtectedRoute
-              exact
-              path={routes.HISTORY}
-              component={AsyncOrderHistoryPage}
-              redirectTo="/signin"
-            />
-            <ProtectedRoute
-              exact
-              path={routes.ACCOUNT}
-              component={AsyncAccountPage}
-              redirectTo="/signin"
-            />
-            <ProtectedRoute
-              exact
-              path={routes.PLANNER}
-              component={AsyncMealPlannerPage}
-              redirectTo="/signin"
-            />
-            <Route exact path={routes.CART} component={AsyncCartPage} />
-            <Route exact path={routes.DELIVERY} component={AsyncDeliveryPage} />
-            <Redirect to="/" />
-          </Switch>
-        </Suspense>
-        <Footer />
-      </>
+      <div className={styles.document}>
+        <div className={styles.content}>
+          <AppHeader className={styles.main} />
+          <Suspense fallback={Spiner}>
+            <Switch>
+              <Route exact path={routes.SIGNIN} component={AsyncSignInPage} />
+              <Route exact path={routes.SIGNUP} component={AsyncSignUpPage} />
+              <Route exact path={routes.MAIN} component={HomePage} />
+              <Route exact path={routes.ABOUT} component={AboutPage} />
+              <Route exact path={routes.CONTACT} component={ContactPage} />
+              <Route exact path={routes.MENU} component={AsyncMenuPage} />
+              <Route
+                exact
+                path={routes.MENU_ITEM}
+                component={AsyncMenuItemPage}
+              />
+              <ProtectedRoute
+                exact
+                path={routes.HISTORY}
+                component={AsyncOrderHistoryPage}
+                redirectTo="/signin"
+              />
+              <ProtectedRoute
+                exact
+                path={routes.ACCOUNT}
+                component={AsyncAccountPage}
+                redirectTo="/signin"
+              />
+              <ProtectedRoute
+                exact
+                path={routes.PLANNER}
+                component={AsyncMealPlannerPage}
+                redirectTo="/signin"
+              />
+              <Route exact path={routes.CART} component={AsyncCartPage} />
+              <Route
+                exact
+                path={routes.DELIVERY}
+                component={AsyncDeliveryPage}
+              />
+              <Redirect to="/" />
+            </Switch>
+          </Suspense>
+        </div>
+        <Footer className={styles.footer} />
+      </div>
     );
   }
 }

@@ -1,6 +1,5 @@
 .home {
-  background: url(../components/AppHeader/assets/first-bg.jpg) no-repeat center
-    center;
+  background: url(../components/assets/first-bg.jpg) no-repeat center center;
   background-size: cover;
   height: 800px;
   margin: 0;
