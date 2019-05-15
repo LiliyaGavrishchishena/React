@@ -7,10 +7,18 @@ import styles from './Authentication.module.css';
 
 const Authentication = () => (
   <div className={styles.wrap}>
-    <Link className={styles.link} to={routes.SIGNUP}>
+    <Link
+      className={styles.link}
+      activeClassName={styles.active}
+      to={routes.SIGNUP}
+    >
       Sign up
     </Link>
-    <Link className={styles.link} to={routes.SIGNIN}>
+    <Link
+      className={styles.link}
+      activeClassName={styles.active}
+      to={routes.SIGNIN}
+    >
       Sign in
     </Link>
   </div>

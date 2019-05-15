@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // components
-import AppNav from './AppNav';
+import AppNav from './Nav/AppNav';
 import Logo from './Logo';
 import UserMenu from '../../modules/User/UserMenu';
 import CartLinkContainer from '../../modules/CartLink/CartLinkContainer';
 import navItems from '../../configs/main-nav';
-import appLogo from '../assets/logo.png';
+import appLogo from '../../assets/logo.png';
 import avatar from '../../modules/User/assets/avatar.png';
 import styles from './AppHeader.module.css';
 import Authentication from '../../modules/Authentication/Authentication';

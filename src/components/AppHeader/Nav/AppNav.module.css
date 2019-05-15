@@ -49,30 +49,6 @@ nav {
   display: block;
 }
 
-.icon_bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: orange;
-  margin: 4px 0;
-  padding: 0;
-  transition: all 0.2s;
-}
-
-.navigation_toggle_btn:checked ~ label > .hamburger > .top_bar {
-  transform: rotate(45deg);
-  transform-origin: 10% 10%;
-}
-
-.navigation_toggle_btn:checked ~ label > .hamburger > .middle_bar {
-  opacity: 0;
-}
-
-.navigation_toggle_btn:checked ~ label > .hamburger > .bottom_bar {
-  transform: rotate(-45deg);
-  transform-origin: 10% 90%;
-}
-
 .navigation__items {
   margin-top: 5px;
   padding: 0 10px;
@@ -88,6 +64,16 @@ nav {
 .navigation__items li {
   padding: 10px;
   list-style-type: none;
+}
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
 }
 
 @media only screen and (min-width: 768px) {
