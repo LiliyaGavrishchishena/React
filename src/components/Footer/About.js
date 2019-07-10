@@ -5,16 +5,17 @@ const About = () => (
   <div>
     <div className={styles.about}>
       <div className={styles.address}>
-        <h3 className={styles.footer_header}>График работы</h3>
-        <div>
-          Пн- Пт <br />
-          11:00 - 23:00
-        </div>
+        <h3 className={styles.footer_header}>We work</h3>
+        <div>Mon- Thur, 8a ~ 2a</div>
+        <div>Fri – Sat, 9a ~ 4a</div>
+        <div>Sun, 9a ~ 12a</div>
       </div>
-      <h3 className={styles.footer_header}>Адрес</h3>
+      <h3 className={styles.footer_header}>Contact</h3>
       <div>
-        г.Киев <br />
-        ул.Счастливая, 77
+        1264 Myrtle Ave <br />
+        Brooklyn, NY 11221
+        <br />
+        United States
       </div>
     </div>
   </div>
