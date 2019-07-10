@@ -1,5 +1,6 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
+// styles
 import styles from './SignUp.module.css';
 
 const SignUpView = ({
@@ -63,5 +64,16 @@ const SignUpView = ({
     </button>
   </form>
 );
+
+SignUpView.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  passwordRepeate: PropTypes.string.isRequired,
+  isValidPass: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default SignUpView;
