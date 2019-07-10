@@ -1,7 +1,7 @@
 import React, { Component, lazy, Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+// components
 import AppHeader from './AppHeader/AppHeader';
 import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
@@ -9,10 +9,10 @@ import ContactPage from '../pages/ContactPage';
 import Spiner from '../modules/Spiner/Spiner';
 import Footer from './Footer/Footer';
 import ProtectedRoute from '../modules/ProtectedRoute/ProtectedRoute';
-
+// configs
 import authOperations from '../redux/auth/authOperations';
-
 import routes from '../configs/routes';
+// styles
 import styles from './App.module.css';
 
 const AsyncSignUpPage = lazy(() =>

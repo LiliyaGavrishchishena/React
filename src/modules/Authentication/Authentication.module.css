@@ -25,18 +25,13 @@
   display: flex;
   border: 1px solid #d5d5d5;
   border-radius: 18px;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-transition: color 0.1s, border-color 0.1s;
-  transition: color 0.1s, border-color 0.1s;
   text-decoration: none;
   color: inherit;
   position: relative;
   outline: 0;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .link:hover {

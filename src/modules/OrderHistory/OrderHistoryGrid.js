@@ -1,5 +1,7 @@
 import React from 'react';
+// components
 import OrderHistoryItem from './OrderHistoryItem';
+// styles
 import styles from './OrderHistoryGrid.module.css';
 
 const OrderHistoryGrid = ({ history = [], onDelete, onShowMoreInfo }) => (

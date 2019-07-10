@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+// configs
 import userNav from '../../configs/user-nav';
-
+// styles
 import styles from './DropDown.module.css';
 
 const DropDown = ({ signOut = () => null }) => (

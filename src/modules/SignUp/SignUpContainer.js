@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+// components
 import SignUpView from './SignUpView';
 import withAuth from '../../components/hoc/withAuth';
 

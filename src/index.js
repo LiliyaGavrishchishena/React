@@ -4,10 +4,10 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { store, persistor } from './store/store';
-
+// components
 import App from './components/App';
 import Spiner from './modules/Spiner/Spiner';
-
+// styles
 import './index.css';
 
 ReactDOM.render(

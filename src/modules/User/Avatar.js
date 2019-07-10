@@ -1,4 +1,5 @@
 import React from 'react';
+// styles
 import styles from './Avatar.module.css';
 
 const Avatar = ({ image = '', width = 60, height = 60 }) => (

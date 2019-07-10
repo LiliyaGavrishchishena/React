@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+// configs
 import routes from '../../configs/routes';
 import authSelectors from '../../redux/auth/authSelectors';
 
