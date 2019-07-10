@@ -11,8 +11,8 @@ const AboutPage = () => (
       <img src={about1} alt="Our restaurant" />
     </div>
     <div>
-      <h2>Welcome</h2>
-      <p>
+      <h2 className={styles.about}>Welcome</h2>
+      <p className={styles.descr}>
         Luxury Restaurant is one of the oldest Ukrainian restaurant in Kiev
         center, which offers traditional Ukrainian specialties which you can
         enjoyed in the pleasant air conditioned ambience. The traditional

@@ -1,28 +1,18 @@
 import React from 'react';
+// styles
+import styles from './DeliveryPage.module.css';
 
 const DeliveryPage = () => (
   <div>
-    <h3>Условия доставки:</h3>
-    <ul>
-      <li>Первый заказ мы принимаем с 11:00, последний – до 22:00.</li>
-      <li>
-        Приготовление заказанных блюд начинается сразу же после вашего звонка и
-        оформления заказа.
-      </li>
-      <li>
-        В процессе приготовления мы используем отборные, исключительно свежие
-        продукты и натуральные ингредиенты.
-      </li>
-    </ul>
-    <h3>Стоимость доставки: </h3>
-    <ul>
-      <li>
-        Придерживаясь проверенной системы стандартов работы, мы ограничили
-        районы нашей доставки. Поэтому быстрая доставка пиццы и напитков в ЖК
-        «ВОЛШЕБНЫЙ» осуществляется бесплатно при любой сумме заказа.
-      </li>
-      <li>В остальные районы доставка стартует при сумме заказа от 250 грн.</li>
-    </ul>
+    <h3 className={styles.about}>Advance Purchase Offer</h3>
+    <div className={styles.descr}>
+      Save 20% off our Hyatt Daily rate with our Advance Purchase Offer If you
+      are looking for a deal, look no further. Take advantage of our Advance
+      Purchase Rate when planning your next trip. Bookings must be made at least
+      14 days prior to arrival. Full non-refundable pre-payment must be made at
+      the time of booking. No changes, amendments or cancellations are permitted
+      on advance purchase bookings.
+    </div>
   </div>
 );
 
